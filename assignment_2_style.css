@@ -1,0 +1,29 @@
+body{
+    background-color: beige;
+}
+
+/* navigation */
+#main-nav{
+    background-color: rgb(206, 85, 37);
+    color: blue
+}
+
+#main-nav li{
+    display: inline-block;
+}
+
+#main-nav ul{ 
+    text-align: center;
+}
+
+#main-nav ul li{
+    list-style-type: none;
+    text-align: center;
+    padding: 10px;
+}
+
+/* hover state */
+#main-nav li:hover{
+    background-color: white;
+    color: rgb(185, 67, 67);
+}
