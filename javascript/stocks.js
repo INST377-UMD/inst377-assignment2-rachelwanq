@@ -23,3 +23,43 @@ async function loadRedditStocks() {
 }
 
 loadRedditStocks();
+
+
+
+const apiKey = "2HeKC07SX0AZ5Ew5H0b7pqIHKbZPHDsP"; // Replace with your real Polygon.io API key
+const ctx = document.getElementById("stockChart")
+let stockChart;
+
+async function LoadStocks() {
+    const ticker = document.getElementById("ticker").value.toUpperCase();
+    const range = parseInt(document.getElementById("range").value);
+    
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(endDate.getDate() - range);
+
+    const start = startDate.toISOString().split("T")[0];
+    const end = endDate.toISOString().split("T")[0];
+
+    const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${start}/${end}?adjusted=true&sort=asc&limit=120&apiKey=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    const labels = data.results.map(item => new Date(item.t).toLocaleDateString());
+    const prices = data.results.map(item => item.c);
+
+    if (stockChart) {
+        stockChart.destroy();
+    }
+
+    stockChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: `($) Stock Price`,
+                data: prices,
+            }]
+        },
+    });
+}
