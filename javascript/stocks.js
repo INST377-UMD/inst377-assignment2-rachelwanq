@@ -33,7 +33,7 @@ let stockChart;
 async function LoadStocks() {
     const ticker = document.getElementById("ticker").value.toUpperCase();
     const range = parseInt(document.getElementById("range").value);
-    
+
     const endDate = new Date();
     const startDate = new Date();
     startDate.setDate(endDate.getDate() - range);
@@ -62,4 +62,41 @@ async function LoadStocks() {
             }]
         },
     });
+}
+
+
+function TurnAudioOff(){
+    if (annyang){
+        annyang.abort();
+    }
+}
+
+function TurnAudioOn(){
+    if (annyang){
+        annyang.start();
+    }
+}
+
+if (annyang){
+    const commands = {
+        "hello": () => {alert("Hello World!");},
+        "change the color to *color": (color) => {document.body.style.backgroundColor = color;},
+        "navigate to *page": (page) => {
+            responsepage = page.toLowerCase();
+            if (responsepage === "home"){
+                window.location.href = "home.html";
+            }
+            else if (responsepage === "stocks"){
+                window.location.href = "stocks.html";
+            }
+            else if (responsepage === "dogs"){
+                window.location.href = "dogs.html";}
+        },
+        "look up *ticker": (ticker) => {
+            responseTicker = ticker.toLowerCase();
+            document.getElementById("ticker").value = responseTicker;
+            LoadStocks();
+        }
+    };
+    annyang.addCommands(commands);
 }

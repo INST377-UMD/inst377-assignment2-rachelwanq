@@ -25,7 +25,11 @@ if (annyang){
             }
             else if (responsepage === "dogs"){
                 window.location.href = "dogs.html";}
-        }
+        },
+        "lookup *ticker": ticker => {
+        document.getElementById("ticker").value = ticker.toUpperCase();
+        loadStockData(ticker.toUpperCase(), document.getElementById("range").value);
+    }
     };
     annyang.addCommands(commands);
 }
