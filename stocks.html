@@ -24,9 +24,11 @@
             </ul>
         </nav>
 
+        <!-- accepts stock ticker -->
         <div class = "stock_look_up">
             <input type = "text" id = "ticker" required>
             <br>
+            <!-- allows user to choose between 30 60 or 90-->
             <select id = "range">
                 <option value = "30">30 Days</option>
                 <option value = "60">60 Days</option>
@@ -36,6 +38,7 @@
             <br>
             <button class="button-33" role="button" onclick = LoadStocks()>LookUp</button>
         </div>
+        <!-- displaying chart -->
         <canvas id="stockChart"></canvas>
 
          <!-- Top 5 stocks -->

@@ -1,3 +1,4 @@
+/* custom buttons for stocks and dogs */
 .buttons_webpages{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, auto));
@@ -66,6 +67,7 @@
     }
   }
   
+  /* quote box */
   .quote_box{
       margin-top: 20px;
       background-color: white;

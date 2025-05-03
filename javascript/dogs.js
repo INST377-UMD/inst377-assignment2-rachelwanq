@@ -1,3 +1,4 @@
+/* getting slider from simple slider and dog picture api */
 async function dogSlider() {
     let slider = document.getElementById("myslider");
 
@@ -18,7 +19,7 @@ async function dogSlider() {
 
 dogSlider();
 
-
+/* laoding in dog breeds for buttons */
 async function loadDogBreeds() {
     let response = await fetch("https://dogapi.dog/api/v2/breeds");
     let data = await response.json();
@@ -28,6 +29,7 @@ async function loadDogBreeds() {
     container.innerHTML = "";
 
     breeds.forEach(breed => {
+        /* .setAttribute() */
         const button = document.createElement("button");
         button.setAttribute("class", "button-82-pushable");
         button.setAttribute("data-breed-name", breed.attributes.name);
@@ -42,6 +44,7 @@ async function loadDogBreeds() {
     });
 }
 
+/* display container on dog breed name description min and max life */
 function showBreedInfo(breed) {
     const info = document.getElementById("dogBreedInfo");
     info.innerHTML = `
@@ -53,6 +56,7 @@ function showBreedInfo(breed) {
 }
 
 loadDogBreeds() 
+
 
 if (annyang){
     const commands = {
