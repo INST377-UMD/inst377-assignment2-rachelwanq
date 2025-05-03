@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>INST377 - Assignment 2</title>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>     
+        <!--
+        <script defer src = "javascript/main.js"></script>
+        -->
+        <script defer src = "javascript/stocks.js"></script>
+    </head>
+    <link rel = "stylesheet" href = "css/main.css">
+    <link rel = "stylesheet" href = "css/stocks.css">
+
+    <body>
+        <header id = "title">
+            <h1 id = "heading">INST377 - Activities</h1>
+        </header>
+
+        <nav id = "main-nav">
+            <ul>
+                <a href = "home.html"><li>Home</li></a>
+                <a href = "stocks.html"><li>Stocks</li></a>
+                <a href = "dogs.html"><li>Dogs</li></a>
+            </ul>
+        </nav>
+
+        <!-- accepts stock ticker -->
+        <div class = "stock_look_up">
+            <input type = "text" id = "ticker" required>
+            <br>
+            <!-- allows user to choose between 30 60 or 90-->
+            <select id = "range">
+                <option value = "30">30 Days</option>
+                <option value = "60">60 Days</option>
+                <option value = "90">90 Days</option>
+            </select>
+            <br>
+            <br>
+            <button class="button-33" role="button" onclick = LoadStocks()>LookUp</button>
+        </div>
+        <!-- displaying chart -->
+        <canvas id="stockChart"></canvas>
+
+         <!-- Top 5 stocks -->
+        <table id = "topStocks">
+            <tr>
+                <th>TICKER</th>
+                <th>COMMENTS</th>
+                <th>SENTIMENT</th>
+            </tr>
+            <tbody id = "topStocksBody"></tbody>
+        </table>
+
+        <div class = "audio_on_off">
+            <h2>In this web page there are options to Navigate using Audio!</h2>
+            <p>Ensure your Mic is enabled to be able to use this feature<p>
+            <ul>
+                <li>Lookup a stock
+                    <ul>
+                        <li>Say: <strong>LookUp &lt;Stock Ticker&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Navigate to a Different Page</li>
+                <ul>
+                    <li>Say: <strong>Navigate to &lt;page&gt;</strong></li>
+                </ul>
+                <li>Change the Page Color</li>
+                <ul>
+                    <li>Say: <strong>Change the color to &lt;color&gt;</strong></li>
+                </ul>
+                <li>Say Hello Back to you!</li>
+                <ul>
+                    <li>Say: <strong>Hello</strong></li>
+                </ul>
+            </ul>
+            <div class = "buttons">
+                <button class="button" role="button" onclick = "TurnAudioOn();">Turn On Audio</button>
+                <button class="button" role="button" onclick = "TurnAudioOff();">Turn Off Audio</button>
+            </div>
+        </div>
+    </body>
+</html>
